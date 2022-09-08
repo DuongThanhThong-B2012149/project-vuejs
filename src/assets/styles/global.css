@@ -1,3 +1,7 @@
+body {
+  /* font-family: "Nunito", sans-serif; */
+  @apply bg-dark-light text-base font-nunito;
+}
 @font-face {
   font-family: "t2ico";
   src: url("../fonts/t2ico.eot?84r94p");
