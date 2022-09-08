@@ -4,10 +4,15 @@ import router from "./router";
 import "./assets/styles/tailwind.css";
 import "./assets/styles/global.css";
 import { registerGlbalComponent } from "./utils/import";
+import { auth } from "./configs/firebase";
 
-const app = createApp(App);
+let app;
+auth.onAuthStateChanged(() => {
+  if (!app) {
+    app = createApp(App);
+    registerGlbalComponent(app);
 
-registerGlbalComponent(app);
-
-app.use(router);
-app.mount("#app");
+    app.use(router);
+    app.mount("#app");
+  }
+});

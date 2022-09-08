@@ -77,7 +77,7 @@ export default {
     const password = ref("");
     const onSubmit = async () => {
       await signIn(email.value, password.value);
-      if (!error.value) route.push({ name: "Home", params: {} });
+      if (!error.value) route.push({ name: "Profile", params: {} });
     };
     return {
       onSubmit,
