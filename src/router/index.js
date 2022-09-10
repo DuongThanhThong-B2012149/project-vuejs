@@ -5,7 +5,7 @@ import { createRouter, createWebHistory } from "vue-router";
 const requireAuth = (to, from, next) => {
   console.log({ to, from, next });
   const user = auth.currentUser;
-  console.log("Before enter router: ", user);
+  // console.log("Before enter router: ", user);
   if (!user) next({ name: "Login", params: {} });
   else next();
 };
@@ -13,6 +13,11 @@ const routes = [
   {
     path: "/",
     name: "Home",
+    meta: {
+      text: "Profile",
+      leading: true,
+      isShowFooter: true,
+    },
     component: () =>
       import(/* webpackChunkName: "home" */ "../views/indexView.vue"),
   },
@@ -49,6 +54,7 @@ const routes = [
     meta: {
       text: "Profile",
       leading: false,
+      isShowFooter: true,
     },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/profileView.vue"),
@@ -63,18 +69,33 @@ const routes = [
   {
     path: "/budget",
     name: "Budget",
+    meta: {
+      text: "Budget",
+      leading: false,
+      isShowFooter: true,
+    },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/BudgetView.vue"),
   },
   {
     path: "/report",
     name: "Report",
+    meta: {
+      text: "Report",
+      leading: false,
+      isShowFooter: true,
+    },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/ReportView.vue"),
   },
   {
     path: "/new-transaction",
     name: "NewTransaction",
+    meta: {
+      text: "NewTransaction",
+      leading: false,
+      isShowFooter: false,
+    },
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/NewTransaction.vue"),
   },

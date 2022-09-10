@@ -4,7 +4,7 @@
       <div class="flex justify-between items-center">
         <div class="flex items-center">
           <div
-            v-if="!meta.leading"
+            v-if="meta.leading"
             class="w-10 h-10 overflow-hidden rounded-full"
           >
             <img
@@ -14,7 +14,9 @@
               alt=""
             />
           </div>
-          <h1 class="text-xl font-bold text-dark ml-2">Hey, Sky Albert</h1>
+          <h1 class="text-xl font-bold text-dark ml-2" v-if="meta.text">
+            {{ meta.text }}
+          </h1>
         </div>
         <div class="flex">
           <ul>
